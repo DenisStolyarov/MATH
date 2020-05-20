@@ -8,13 +8,16 @@
 using namespace std;
 #define _rand(min, max) ( rand() % ((max) - (min) + 1) + (min) )
 
+#define SIZE_1 12
+#define SIZE_2 12
+
 int main()
 {
 	setlocale(LC_ALL, "rus");
 	srand(time(NULL));
 	char abc[25]; // алфавит
-	char s1[300];
-	char s2[250];	
+	char s1[SIZE_1];
+	char s2[SIZE_2];
 
 	// заполняем массив
 	for (int i = 97, n = 0; i <= 122; ++i, ++n)
@@ -22,7 +25,7 @@ int main()
 		abc[n] = (char)i; 
 	}
 	cout << "S1 = ";
-	for (int i = 0; i < 301; i++)
+	for (int i = 0; i < SIZE_1 + 1; i++)
 	{
 		s1[i] = abc[_rand(0, 25)];
 		if (i % 50 == 0)
@@ -31,7 +34,7 @@ int main()
 	}
 
 	cout <<"\nS2 =";
-	for (int i = 0; i < 251; i++)
+	for (int i = 0; i < SIZE_2 + 1; i++)
 	{
 		s2[i] = abc[_rand(0, 25)];
 		if (i% 50 == 0)
@@ -45,8 +48,8 @@ int main()
 	int ly = sizeof(s2) ;
 
 
-	int S1_size[]{ 12,15,20,30,60,150,300 };
-	int S2_size[]{ 10,13,17,25,50,125,250 };
+	int S1_size[]{ SIZE_1 / 12,SIZE_1 / 10,SIZE_1 / 8,SIZE_1 / 6,SIZE_1 /4,SIZE_1 /2,SIZE_1 };
+	int S2_size[]{ SIZE_2 / 12,SIZE_2 / 10,SIZE_2 / 8,SIZE_2 / 6,SIZE_2 /4,SIZE_2 /2,SIZE_2 };
 	
 
 	std::cout << "\n\n-- расстояние Левенштейна -----";
